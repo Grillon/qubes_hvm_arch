@@ -1,9 +1,0 @@
-=pod
-
-=head1 README
-
-here you can find the documentation in different format : man, html, pod.
-
-the pod is readable online.
-
-=cut

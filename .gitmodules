@@ -1,0 +1,3 @@
+[submodule "libsh"]
+	path = libsh
+	url = git@github.com:Grillon/libsh
