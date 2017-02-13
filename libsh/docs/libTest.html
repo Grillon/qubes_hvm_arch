@@ -1,0 +1,74 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
+
+<body style="background-color: white">
+
+
+
+<ul id="index">
+  <li><a href="#Name">Name</a></li>
+  <li><a href="#Description">Description</a></li>
+  <li><a href="#Dependencies">Dependencies</a></li>
+  <li><a href="#Functions">Functions</a>
+    <ul>
+      <li><a href="#assert_return_code">assert_return_code</a></li>
+      <li><a href="#assert_return_err">assert_return_err</a></li>
+      <li><a href="#assert_return_message">assert_return_message</a></li>
+    </ul>
+  </li>
+  <li><a href="#Author">Author</a></li>
+</ul>
+
+<h1 id="Name">Name</h1>
+
+<p>libTest.sh</p>
+
+<h1 id="Description">Description</h1>
+
+<p>Test library. aide &agrave; tester le comportement d un script dans un environnement maitrise.</p>
+
+<h1 id="Dependencies">Dependencies</h1>
+
+<p>libError.sh</p>
+
+<h1 id="Functions">Functions</h1>
+
+<h2 id="assert_return_code">assert_return_code</h2>
+
+<p>assert_return_code &quot;COMMAND&quot; &quot;EXPECTED_RETURN_CODE&quot;</p>
+
+<pre><code> RETURN 0 if EXPECTED_RETURN_CODE == RETURN_CODE
+ RETURN 1 othewise</code></pre>
+
+<p>in both case there are a message of type</p>
+
+<p><b>hostname - date time - program -(function_tested) return_code;expected_return_code state</b></p>
+
+<p>tel que :</p>
+
+<p>myhost - 0211 15:39 - : ./test.sh -(ls) code retour:0 ; attendu:1 KO</p>
+
+<h2 id="assert_return_err">assert_return_err</h2>
+
+<p>TODO : verify stderr</p>
+
+<h2 id="assert_return_message">assert_return_message</h2>
+
+<p>TODO : verify stdout</p>
+
+<h1 id="Author">Author</h1>
+
+<p>Grillon</p>
+
+
+</body>
+
+</html>
+
+

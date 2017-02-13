@@ -1,0 +1,32 @@
+=pod
+
+=head1 Name
+
+Installer archlinux HVM qubes
+
+=head1 Description
+
+Permet d'installer simplement une HVM archlinux sous qubes OS
+
+=head1 Functions
+
+	00_instructions.sh
+	01_start.sh
+	02_installation.sh
+	03_inside_chroot_part1.sh
+	04_inside_chroot_part2.sh
+	05_after_reboot.sh
+	05_reboot.sh
+	11_after_reboot.sh
+	build_qubes.sh
+	info_build.sh
+	libsh
+	net.sh
+	xen-4.6.4.tar.gz
+	XX_restart.sh
+
+=head1 Author
+
+Grillon
+
+=cut
