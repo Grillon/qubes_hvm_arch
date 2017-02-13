@@ -17,9 +17,17 @@ initCouleur
 erreur $(((libError-1)*-1)) "chargement libError.sh" $ESTOP
 useradd -m -G wheel $user
 erreur $? "$action1" $ECONT
+sed -i 'N;/multilib[^-]/s/#\(\S\)/\1/g' /etc/pacman.conf
+erreur $? "ajout multilib" $ESTOP
 pacman -Sy
 pacman -S $packages_after_install --noconfirm --needed
 erreur $? "$action2" $ECONT
 sed -i 's/# \(%wheel ALL=(ALL) ALL\)/\1/' /etc/sudoers
 
 erreur $KO "$action3 - non implemente" $ESTOP
+pacman-key --init
+pacman-key --populate
+pacman-key --recv-key 2043E7ACC1833B9C
+pacman-key --finger 2043E7ACC1833B9C
+pacman-key --lsign-key 2043E7ACC1833B9C
+erreur $? "signature de la cle 2043E7ACC1833B9C" $ESTOP

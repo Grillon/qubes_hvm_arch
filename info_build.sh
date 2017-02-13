@@ -14,4 +14,4 @@ keymap=fr
 chroot=/mnt/
 base_packages="base base-devel"
 user=thierry
-packages_after_install="vim tmux sudo git"
+packages_after_install="vim tmux sudo git linux-headers"
