@@ -15,4 +15,4 @@ chroot=/mnt/
 base_packages="base base-devel"
 user=thierry
 xuser=user
-packages_after_install="vim tmux sudo git linux-headers"
+packages_after_install="vim tmux sudo git linux-headers pulseaudio xorg-server xorg-server-devel xorg-util-macros xf86dgaproto"

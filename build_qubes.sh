@@ -6,7 +6,7 @@ initCouleur
 erreur $(((libError-1)*-1)) "chargement libError.sh" $ESTOP
 base=$(pwd)
 export BACKEND_VMM=xen
-liste_pkg="qubes-vmm-xen qubes-core-vchan-xen qubes-core-qubesdb qubes-linux-utils qubes-core-agent-linux qubes-gui-agent-linux"
+liste_pkg="qubes-vmm-xen qubes-core-vchan-xen qubes-core-qubesdb qubes-linux-utils qubes-core-agent-linux qubes-gui-common qubes-gui-agent-linux"
 
 function clone_depot {
 	git clone --recursive https://github.com/QubesOS/${depot}
