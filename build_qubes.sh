@@ -6,7 +6,8 @@ initCouleur
 erreur $(((libError-1)*-1)) "chargement libError.sh" $ESTOP
 base=$(pwd)
 export BACKEND_VMM=xen
-liste_pkg="qubes-vmm-xen qubes-core-vchan-xen qubes-core-qubesdb qubes-linux-utils qubes-core-agent-linux qubes-gui-common qubes-gui-agent-linux"
+liste_pkg="qubes-vmm-xen qubes-core-vchan-xen qubes-core-qubesdb qubes-linux-utils qubes-core-agent-linux qubes-gui-common"
+gui_pkg="qubes-gui-agent-linux"
 
 function clone_depot {
 	git clone --recursive https://github.com/QubesOS/${depot}
@@ -17,6 +18,9 @@ function build_pkgs {
 	md5sums=$(makepkg -g)
 	md5sums=$(echo ${md5sums} | sed 's/\n//g')
 	sed -i "s/md5sums=.*/${md5sums}/" PKGBUILD
+	if [ "${depot}" == "$gui_pkg" ];then
+		sudo pacman -Sy --noconfirm
+	fi
 	makepkg -s --noconfirm
 }
 function prepare {
@@ -41,8 +45,13 @@ function install_pkgs {
 function garbage_command {
 	echo "rm -Rf ${liste_pkg}"
 }
+function add_rw_to_fstab {
+	sudo sed -i 's#LABEL=home          	/home     	ext4      	rw,relatime,data=ordered	0 2#LABEL=home          	/rw     	ext4      	rw,relatime,data=ordered	0 2\
+		/rw/home         	/home     	ext4      	bind,defaults,noauto 0 0#' /etc/fstab
+	erreur $? "ajout de /rw/home" $ECONT
+}
 
-for depot in $liste_pkg
+for depot in $liste_pkg $gui_pkg
 do
 	clone_depot
 	prepare
@@ -53,3 +62,4 @@ do
 	#pkgs_to_install
 done
 garbage_command
+add_rw_to_fstab
