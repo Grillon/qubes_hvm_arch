@@ -131,6 +131,10 @@ C<reboot>
 
 =item FINISHED
 
+B<ATTETION !!>
+
+  Don't forget to deactivate ALT+F# from your dom0 to be able to switch virtual console on your hvm.
+
 =back
 
 =head1 Author
