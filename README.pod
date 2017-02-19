@@ -26,6 +26,113 @@ Permet d'installer simplement une HVM archlinux sous qubes OS
 	xen-4.6.4.tar.gz
 	XX_restart.sh
 
+=head1 A lire / TO READ
+
+I took into account issues : 2559 and 2612
+
+for issue 2559 you must install the last version of xen. tape from dom0 terminal :
+
+C<sudo qubes-dom0-update --enablerepo=qubes-dom0-current-testing>
+
+while I write this line I have the xen version xen-4.6.4-25.
+
+=head1 HVM install Procedure
+
+=over 4
+
+=item 1) Boot from arch linux cd
+
+tape from dom0 terminal :
+
+C<qvm-start YourHvmName --cdrom=PvmName:/PvmMountPoint/IsoFile.iso>
+
+=item 2) select your keyboard layout
+
+C<#loadkeys fr>
+
+=item 3) checkout this depot or mount a shared folder with that depot inside.
+
+=item 4) fill info_build.sh
+
+
+	monhostname=fullarch
+	home=/dev/xvdb
+	boot=/dev/xvda1
+	root=/dev/xvda2
+	bootdisk=/dev/xvda
+	ip=10.137.2.21
+	gateway=10.137.2.1
+	mask=24
+	dev=eth0
+	dns1=10.137.2.1
+	locale=fr_FR.UTF-8
+	timezone=Europe/Paris
+	keymap=fr
+	chroot=/mnt/
+	base_packages="base base-devel"
+	user=thierry
+	xuser=user
+	packages_after_install="vim tmux sudo git linux-headers pulseaudio xorg-server xorg-server-devel xorg-util-macros xf86dgaproto xorg-xsetroot xorg-xclock xterm"
+	packages_I_want="i3 dmenu rxvt-unicode urxvt-perls qt5 vlc firefox python-pip"
+	pip_packages="py3status"
+
+=item 5) launch the two first scripts
+
+C<#./01_start.sh>
+
+C<#./02_installation.sh>
+
+=item 6) follow instruction :
+
+instruction say to tape : C<arch-chroot /mnt>
+
+=item 7) go to qubes_hvm_arch dir and launch the two next scripts
+
+C<#cd qubes_hvm_arch>
+
+C<#./03_inside_chroot_part1.sh && ./04_inside_chroot_part2.sh>
+
+=item 8) choose root passwd and quit chroot
+
+C<#passwd>
+
+CTRL + d
+
+=item 9) umount your system with the fith script
+
+C<#./05_reboot.sh && reboot>
+
+=item 10) restart your hvm without cdrom
+
+  from dom0 cli or from graphical interface
+
+=item 11) as root goto /qubes_hvm_arch then launch 05_after_reboot.sh
+
+C<#cd qubes_hvm_arch && ./05_after_reboot.sh && 06_locales_and_qubes_keys.sh>
+
+=item 12) select a passwd for your user define in info_build.sh
+
+C<#passwd YourUser>
+
+=item 13) install optionnal packages
+
+C<#./07_packages_optionnels>
+
+=item 14) as your new user copy qubes_hvm_arch to your home
+
+C<#su - YourUser>
+C<$cp -R /qubes_hvm_arch ~ && cd ~/qubes_hvm_arch/>
+
+=item 15) start qubes packages building
+
+C<$ ./build_qubes.sh>
+
+C<reboot>
+
+=item FINISHED
+
+=back
+
 =head1 Author
 
 Grillon

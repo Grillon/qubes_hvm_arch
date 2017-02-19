@@ -26,4 +26,3 @@ pacman -S $packages_after_install --noconfirm --needed
 erreur $? "$action2" $ECONT
 sed -i 's/# \(%wheel ALL=(ALL) ALL\)/\1/' /etc/sudoers
 erreur $? "ajout wheel to sudoers" $ECONT
-erreur $KO "$action3 - non implemente" $ESTOP
