@@ -15,4 +15,5 @@ chroot=/mnt/
 base_packages="base base-devel"
 user=thierry
 xuser=user
-packages_after_install="vim tmux sudo git linux-headers pulseaudio xorg-server xorg-server-devel xorg-util-macros xf86dgaproto"
+packages_after_install="vim tmux sudo git linux-headers pulseaudio xorg-server xorg-server-devel xorg-util-macros xf86dgaproto xorg-xsetroot xorg-xclock xterm"
+packages_I_want="i3 dmenu rxvt-unicode urxvt-perls"

@@ -17,7 +17,7 @@ function build_pkgs {
 	md5sums=$(makepkg -g)
 	md5sums=$(echo ${md5sums} | sed 's/\n//g')
 	sed -i "s/md5sums=.*/${md5sums}/" PKGBUILD
-	makepkg -s
+	makepkg -s --noconfirm
 }
 function prepare {
 	if [ ${depot} == "qubes-vmm-xen" ];then
@@ -27,7 +27,7 @@ function prepare {
 function install_pkgs {
 	for pkg in $(ls *xz)
 	do
-		sudo pacman -U $pkg
+		sudo pacman -U $pkg --noconfirm
 		erreur $? "installation $pkg" $ECONT
 	done
 }

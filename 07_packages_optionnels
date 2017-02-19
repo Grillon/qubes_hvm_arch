@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+. ./info_build.sh
+. ./libsh/libG.sh
+initCouleur
+. ./libsh/libError.sh
+erreur $(((libError-1)*-1)) "chargement libError.sh" $ESTOP
+echo "installation des packages : $packages_I_want"
+echo "CTRL +C pour annuler"
+read a
+sudo pacman -S $packages_I_want --needed --noconfirm
+erreur $? "installation $packages_I_want" $ESTOP

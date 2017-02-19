@@ -15,9 +15,10 @@ Permet d'installer simplement une HVM archlinux sous qubes OS
 	02_installation.sh
 	03_inside_chroot_part1.sh
 	04_inside_chroot_part2.sh
-	05_after_reboot.sh
 	05_reboot.sh
-	11_after_reboot.sh
+	05_after_reboot.sh
+	06_locales_and_qubes_keys.sh
+	07_packages_optionnels
 	build_qubes.sh
 	info_build.sh
 	libsh
