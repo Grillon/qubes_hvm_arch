@@ -9,3 +9,7 @@ echo "CTRL +C pour annuler"
 read a
 sudo pacman -S $packages_I_want --needed --noconfirm
 erreur $? "installation $packages_I_want" $ESTOP
+if [ "$pip_packages" ];then
+	sudo pip install $pip_packages
+	erreur $? "installation pip de $pip_packages" $ECONT
+fi

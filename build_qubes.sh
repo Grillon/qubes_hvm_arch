@@ -47,7 +47,7 @@ function garbage_command {
 }
 function add_rw_to_fstab {
 	sudo sed -i 's#LABEL=home          	/home     	ext4      	rw,relatime,data=ordered	0 2#LABEL=home          	/rw     	ext4      	rw,relatime,data=ordered	0 2\
-		/rw/home         	/home     	ext4      	bind,defaults,noauto 0 0#' /etc/fstab
+/rw/home         	/home     	ext4      	bind,defaults,noauto 0 0#' /etc/fstab
 	erreur $? "ajout de /rw/home" $ECONT
 }
 
