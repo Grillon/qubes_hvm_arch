@@ -15,6 +15,7 @@ do
 done
 echo "ok? sinon CTRL+C"
 read a
+./net.sh
 useradd -m -G wheel $user
 useradd -m $xuser
 erreur $? "$action1" $ECONT

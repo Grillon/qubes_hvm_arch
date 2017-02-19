@@ -4,6 +4,7 @@ echo "les referencer sur info_build.sh"
 echo "est-ce OK? - CTRL+C sinon"
 read a
 . info_build.sh
+./net.sh
 e2label $root root
 e2label $boot boot
 e2label $home home
