@@ -24,5 +24,5 @@ erreur $? "ajout multilib" $ESTOP
 pacman -Sy
 pacman -S $packages_after_install --noconfirm --needed
 erreur $? "$action2" $ECONT
-sed -i 's/# \(%wheel ALL=(ALL) ALL\)/\1/' /etc/sudoers
+sed -i 's/# \(%wheel ALL=(ALL) NOPASSWD: ALL\)/\1/' /etc/sudoers
 erreur $? "ajout wheel to sudoers" $ECONT
