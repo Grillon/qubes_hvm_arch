@@ -38,6 +38,10 @@ while I write this line I have the xen version xen-4.6.4-25.
 
 =head1 HVM install Procedure
 
+Every things could be done without restart. To do so you need to copy makepkg_for_chroot under /usr/bin.
+
+I'm working on another a better installer.
+
 =over 4
 
 =item 1) Boot from arch linux cd
